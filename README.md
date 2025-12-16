@@ -97,8 +97,3 @@ This project is MIT licensed (see `package.json`).
 
 ---
 
-If you want, I can:
-- add a demo GIF or screenshots to the README
-- add a minimal `README` section for server configuration
-- create a `.env.example` with the required env vars
-
