@@ -1,6 +1,6 @@
 # PairUp
 
-PairUp is a small web-based memory/matching game built with React, Vite, Tailwind CSS and a lightweight Express server. The UI uses shadcn/ui-inspired components, Radix primitives, and a custom soft-pastel design system (see `ideas.md`).
+PairUp is a small web-based memory/matching game built with React, Vite, Tailwind CSS and a lightweight Express server. The UI uses shadcn/ui-inspired components, Radix primitives, and a custom soft-pastel design system.
 
 ## Features
 - Responsive memory/matching game UI
