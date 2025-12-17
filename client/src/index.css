@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Soft Pastel Minimalism Theme */
+  --primary: #D4B5E0;
+  --primary-foreground: #F8F7F4;
+  --sidebar-primary: #A8E6D5;
+  --sidebar-primary-foreground: #F8F7F4;
+  --chart-1: #A8E6D5;
+  --chart-2: #D4B5E0;
+  --chart-3: #F5D5C8;
+  --chart-4: #D4B5E0;
+  --chart-5: #A8E6D5;
+  --radius: 1.5rem;
+  --background: #F8F7F4;
+  --foreground: #4A4A4A;
+  --card: #FFFFFF;
+  --card-foreground: #4A4A4A;
+  --popover: #FFFFFF;
+  --popover-foreground: #4A4A4A;
+  --secondary: #A8E6D5;
+  --secondary-foreground: #2D5F52;
+  --muted: #E8E4E0;
+  --muted-foreground: #8B8B8B;
+  --accent: #D4B5E0;
+  --accent-foreground: #5A3F6F;
+  --destructive: #E74C3C;
+  --destructive-foreground: #FFFFFF;
+  --border: #E8E4E0;
+  --input: #F0EEEB;
+  --ring: #D4B5E0;
+  --sidebar: #F8F7F4;
+  --sidebar-foreground: #4A4A4A;
+  --sidebar-accent: #A8E6D5;
+  --sidebar-accent-foreground: #2D5F52;
+  --sidebar-border: #E8E4E0;
+  --sidebar-ring: #D4B5E0;
+}
+
+.dark {
+  --primary: #D4B5E0;
+  --primary-foreground: #F8F7F4;
+  --sidebar-primary: #A8E6D5;
+  --sidebar-primary-foreground: #F8F7F4;
+  --background: #1A1A1A;
+  --foreground: #E8E4E0;
+  --card: #2A2A2A;
+  --card-foreground: #E8E4E0;
+  --popover: #2A2A2A;
+  --popover-foreground: #E8E4E0;
+  --secondary: #A8E6D5;
+  --secondary-foreground: #E8E4E0;
+  --muted: #3A3A3A;
+  --muted-foreground: #A8A8A8;
+  --accent: #D4B5E0;
+  --accent-foreground: #E8E4E0;
+  --destructive: #E74C3C;
+  --destructive-foreground: #FFFFFF;
+  --border: #3A3A3A;
+  --input: #3A3A3A;
+  --ring: #D4B5E0;
+  --chart-1: #A8E6D5;
+  --chart-2: #D4B5E0;
+  --chart-3: #F5D5C8;
+  --chart-4: #D4B5E0;
+  --chart-5: #A8E6D5;
+  --sidebar: #2A2A2A;
+  --sidebar-foreground: #E8E4E0;
+  --sidebar-accent: #A8E6D5;
+  --sidebar-accent-foreground: #E8E4E0;
+  --sidebar-border: #3A3A3A;
+  --sidebar-ring: #D4B5E0;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Soft Pastel Card Styles */
+  .card-game {
+    @apply rounded-3xl bg-white dark:bg-slate-800/80 shadow-lg transition-all duration-300 border border-transparent dark:border-white/10;
+    background: linear-gradient(135deg, rgba(212, 181, 224, 0.1) 0%, rgba(168, 230, 213, 0.05) 100%);
+    backdrop-filter: blur(10px);
+  }
+
+  :is(.dark .card-game) {
+    background: linear-gradient(135deg, rgba(212, 181, 224, 0.05) 0%, rgba(168, 230, 213, 0.02) 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 181, 224, 0.1);
+  }
+
+  .card-game:active {
+    @apply scale-100;
+  }
+
+  /* Floating animation for background elements */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Flip animation for cards */
+  @keyframes flip {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .animate-flip {
+    animation: flip 0.6s ease-in-out;
+  }
+
+  /* Match success animation */
+  @keyframes matchSuccess {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+  }
+
+  .animate-match-success {
+    animation: matchSuccess 0.6s ease-out;
+  }
+
+  /* Pulse animation */
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+}
+
+/* Typography */
+html {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.font-display {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.font-accent {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
