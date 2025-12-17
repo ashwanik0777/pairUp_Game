@@ -95,7 +95,7 @@ export default function Leaderboard() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl animate-in fade-in duration-500">
+    <div className="container mx-auto px-4 py-12 max-w-6xl animate-in fade-in duration-500">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-display font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center justify-center gap-3">
           <Trophy className="h-10 w-10 text-yellow-500" />
