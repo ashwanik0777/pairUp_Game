@@ -7,7 +7,7 @@ import { UserNameDialog } from "@/components/UserNameDialog";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider>
+    <ThemeProvider defaultTheme="light" switchable>
       <TooltipProvider>
         {children}
         <Toaster />
