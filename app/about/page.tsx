@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Github, Heart, Code, Brain, Sparkles, Zap, Palette, Smartphone } from "lucide-react";
@@ -67,7 +69,7 @@ export default function About() {
                 <Badge variant="secondary" className="bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1">React 19</Badge>
                 <Badge variant="secondary" className="bg-mint-100 text-mint-700 dark:bg-emerald-900/30 dark:text-emerald-300 px-3 py-1">TypeScript</Badge>
                 <Badge variant="secondary" className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1">Tailwind CSS</Badge>
-                <Badge variant="secondary" className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300 px-3 py-1">Vite</Badge>
+                <Badge variant="secondary" className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300 px-3 py-1">Next.js 16</Badge>
               </div>
             </CardContent>
           </Card>
@@ -98,52 +100,20 @@ export default function About() {
                   href="https://github.com" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors"
+                  className="flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                 >
                   <Github className="h-5 w-5" />
-                  GitHub Profile
+                  GitHub
                 </a>
-                <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400">
-                  <Heart className="h-5 w-5 fill-current" />
-                  Made with Love
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        {/* Benefits */}
-        <motion.div variants={item} className="md:col-span-2">
-          <Card className="card-game border-none hover:shadow-xl transition-shadow duration-300">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl">
-                <div className="p-2 rounded-lg bg-peach-100 dark:bg-orange-900/30">
-                  <Brain className="h-6 w-6 text-peach-600 dark:text-orange-400" />
-                </div>
-                Why Play Memory Games?
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="grid sm:grid-cols-3 gap-8 text-gray-600 dark:text-gray-300">
-              <div className="space-y-3 p-4 rounded-xl bg-white/50 dark:bg-black/20">
-                <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-2">
-                  <Zap className="h-5 w-5 text-purple-600 dark:text-purple-400" />
-                </div>
-                <h4 className="font-bold text-gray-900 dark:text-white text-lg">Improve Focus</h4>
-                <p className="text-sm leading-relaxed">Regularly playing memory games can help improve your attention span and concentration levels.</p>
-              </div>
-              <div className="space-y-3 p-4 rounded-xl bg-white/50 dark:bg-black/20">
-                <div className="w-10 h-10 rounded-full bg-mint-100 dark:bg-emerald-900/30 flex items-center justify-center mb-2">
-                  <Smartphone className="h-5 w-5 text-mint-600 dark:text-emerald-400" />
-                </div>
-                <h4 className="font-bold text-gray-900 dark:text-white text-lg">Visual Memory</h4>
-                <p className="text-sm leading-relaxed">Train your brain to recall visual information and spatial relationships faster and more accurately.</p>
-              </div>
-              <div className="space-y-3 p-4 rounded-xl bg-white/50 dark:bg-black/20">
-                <div className="w-10 h-10 rounded-full bg-peach-100 dark:bg-orange-900/30 flex items-center justify-center mb-2">
-                  <Brain className="h-5 w-5 text-peach-600 dark:text-orange-400" />
-                </div>
-                <h4 className="font-bold text-gray-900 dark:text-white text-lg">Cognitive Skills</h4>
-                <p className="text-sm leading-relaxed">Keep your mind sharp and active with engaging mental exercises that challenge your brain.</p>
+                <a 
+                  href="https://ashwani.me" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                >
+                  <Smartphone className="h-5 w-5" />
+                  Portfolio
+                </a>
               </div>
             </CardContent>
           </Card>

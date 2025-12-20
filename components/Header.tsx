@@ -1,7 +1,9 @@
+"use client";
+
 import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Gamepad2, Github } from "lucide-react";
-import { Link } from "wouter";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Header() {
@@ -15,27 +17,25 @@ export default function Header() {
     >
       <div className="container flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <Link href="/">
-            <a className="flex items-center gap-2 transition-transform hover:scale-105">
-              <div className="rounded-lg bg-primary/10 p-2 text-primary">
-                <Gamepad2 className="h-6 w-6" />
-              </div>
-              <span className="text-xl font-bold tracking-tight bg-linear-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-                PairUp
-              </span>
-            </a>
+          <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-105">
+            <div className="rounded-lg bg-primary/10 p-2 text-primary">
+              <Gamepad2 className="h-6 w-6" />
+            </div>
+            <span className="text-xl font-bold tracking-tight bg-linear-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              PairUp
+            </span>
           </Link>
         </div>
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-          <Link href="/">
-            <a className="transition-colors hover:text-primary">Game</a>
+          <Link href="/" className="transition-colors hover:text-primary">
+            Game
           </Link>
-          <Link href="/leaderboard">
-            <a className="transition-colors hover:text-primary">Leaderboard</a>
+          <Link href="/leaderboard" className="transition-colors hover:text-primary">
+            Leaderboard
           </Link>
-          <Link href="/about">
-            <a className="transition-colors hover:text-primary">About</a>
+          <Link href="/about" className="transition-colors hover:text-primary">
+            About
           </Link>
         </nav>
 

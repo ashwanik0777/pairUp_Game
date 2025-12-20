@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trophy, Medal, Calendar, Grid3X3, LayoutGrid, Grid2X2, User } from "lucide-react";
@@ -102,67 +104,67 @@ export default function Leaderboard() {
           Leaderboard
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
-          Your personal best scores across all themes and difficulties.
+          Your best scores across all themes and difficulty levels
         </p>
       </div>
 
       {scores.length === 0 ? (
-        <Card className="card-game border-none text-center py-12">
-          <CardContent>
-            <div className="flex flex-col items-center gap-4">
-              <Medal className="h-16 w-16 text-gray-300 dark:text-gray-600" />
-              <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-300">No Scores Yet</h3>
-              <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-                Play a game to set your first record! Your best scores will appear here automatically.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="text-center py-12 bg-gray-50 dark:bg-gray-800/50 rounded-3xl">
+          <p className="text-xl text-gray-500 dark:text-gray-400">No games played yet. Start playing to see your scores here!</p>
+        </div>
       ) : (
-        <div className="grid gap-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {scores.map((entry, index) => (
-            <Card key={`${entry.theme}-${entry.gridSize}`} className="card-game border-none overflow-hidden hover:scale-[1.01] transition-transform">
-              <div className="flex items-center p-4 md:p-6 gap-4 md:gap-8">
-                {/* Rank */}
-                <div className="shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-linear-to-br from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 font-display font-bold text-xl text-yellow-600 dark:text-yellow-500">
-                  #{index + 1}
-                </div>
-
-                {/* Info */}
-                <div className="grow grid grid-cols-2 md:grid-cols-5 gap-4 items-center">
-                  <div className="flex items-center gap-2 col-span-2 md:col-span-1">
-                    <div className="flex items-center gap-2 text-purple-600 dark:text-purple-400 font-medium">
-                      <User className="h-4 w-4" />
-                      <span className="truncate max-w-[100px]">{entry.score?.playerName || 'Anonymous'}</span>
-                    </div>
-                  </div>
-
+            <Card key={`${entry.theme}-${entry.gridSize}`} className="card-game border-none hover:shadow-lg transition-all duration-300 overflow-hidden group">
+              <div className={`h-2 w-full ${
+                index === 0 ? 'bg-yellow-400' : 
+                index === 1 ? 'bg-gray-400' : 
+                index === 2 ? 'bg-orange-400' : 'bg-purple-400'
+              }`} />
+              <CardHeader className="pb-2">
+                <div className="flex justify-between items-start">
                   <div className="flex items-center gap-2">
                     <span className="text-2xl" role="img" aria-label={entry.theme}>
                       {getThemeIcon(entry.theme)}
                     </span>
-                    <span className="font-medium capitalize text-gray-700 dark:text-gray-200">
+                    <Badge variant="outline" className="capitalize">
                       {entry.theme}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-                    {getGridIcon(entry.gridSize)}
-                    <span>{entry.gridSize}</span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-900/20 dark:text-purple-300 dark:border-purple-800">
-                      {entry.score?.moves} Moves
                     </Badge>
                   </div>
-
-                  <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                    <Calendar className="h-4 w-4" />
-                    <span>{entry.score?.date}</span>
+                  <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-md">
+                    {getGridIcon(entry.gridSize)}
+                    <span className="text-xs font-medium">{entry.gridSize}</span>
                   </div>
                 </div>
-              </div>
+                <CardTitle className="mt-2 flex items-center gap-2">
+                  {index < 3 && (
+                    <Medal className={`h-5 w-5 ${
+                      index === 0 ? 'text-yellow-500' : 
+                      index === 1 ? 'text-gray-400' : 
+                      'text-orange-500'
+                    }`} />
+                  )}
+                  <span className="capitalize">{entry.score?.playerName || 'Anonymous'}</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Best Score</p>
+                      <p className="text-3xl font-bold text-purple-600 dark:text-purple-400 font-display">
+                        {entry.score?.moves} <span className="text-sm font-normal text-gray-500 dark:text-gray-400">moves</span>
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <div className="flex items-center gap-1 text-xs text-gray-400 mb-1 justify-end">
+                        <Calendar className="h-3 w-3" />
+                        {entry.score?.date}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
             </Card>
           ))}
         </div>

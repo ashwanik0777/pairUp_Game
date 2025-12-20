@@ -36,23 +36,27 @@ export default function GameStats({
 
     if (isGameActive) {
       interval = setInterval(() => {
-        setSeconds(prev => {
-          const newSeconds = prev + 1;
-          onTimeUpdate?.(newSeconds);
-          return newSeconds;
-        });
+        setSeconds(prev => prev + 1);
       }, 1000);
     }
 
     return () => clearInterval(interval);
-  }, [isGameActive, onTimeUpdate]);
+  }, [isGameActive]);
+
+  // Sync time with parent
+  useEffect(() => {
+    onTimeUpdate?.(seconds);
+  }, [seconds, onTimeUpdate]);
 
   // Load best score from localStorage
   useEffect(() => {
     const key = `best_score_${gridSize}x${gridSize}_${theme}`;
     const stored = localStorage.getItem(key);
     if (stored) {
-      setBestScore(parseInt(stored));
+      const parsed = parseInt(stored);
+      setBestScore(!isNaN(parsed) ? parsed : null);
+    } else {
+      setBestScore(null);
     }
   }, [gridSize, theme]);
 
@@ -63,7 +67,8 @@ export default function GameStats({
   };
 
   const totalCards = (gridSize * gridSize) / 2;
-  const progress = Math.round((matchedPairs / totalCards) * 100);
+  const rawProgress = (matchedPairs / totalCards) * 100;
+  const progress = isNaN(rawProgress) ? 0 : Math.round(rawProgress);
 
   return (
     <div className="w-full space-y-4">

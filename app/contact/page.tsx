@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -100,22 +102,17 @@ export default function Contact() {
         <motion.div 
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.4 }}
           className="md:col-span-2"
         >
-          <Card className="border-none shadow-lg">
+          <Card className="border-none shadow-sm h-full">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MessageSquare className="h-5 w-5 text-mint-600 dark:text-emerald-400" />
-                Send us a Message
-              </CardTitle>
-              <CardDescription>
-                Fill out the form below and we'll get back to you shortly.
-              </CardDescription>
+              <CardTitle>Send us a Message</CardTitle>
+              <CardDescription>Fill out the form below and we'll get back to you.</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
                     <Input id="name" placeholder="Your name" required />
@@ -128,26 +125,17 @@ export default function Contact() {
                 
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-medium text-gray-700 dark:text-gray-300">Subject</label>
-                  <Input id="subject" placeholder="What is this regarding?" required />
+                  <Input id="subject" placeholder="What is this about?" required />
                 </div>
-
+                
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Type your message here..." 
-                    className="min-h-[150px]" 
-                    required 
-                  />
+                  <Textarea id="message" placeholder="Tell us more..." className="min-h-[150px]" required />
                 </div>
-
-                <Button 
-                  type="submit" 
-                  className="w-full sm:w-auto bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
-                  disabled={isSubmitting}
-                >
+                
+                <Button type="submit" className="w-full md:w-auto" disabled={isSubmitting}>
                   {isSubmitting ? (
-                    "Sending..."
+                    <>Sending...</>
                   ) : (
                     <>
                       <Send className="mr-2 h-4 w-4" /> Send Message

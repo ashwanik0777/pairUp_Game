@@ -1,8 +1,9 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import GameBoard from '@/components/GameBoard';
 import GameStats from '@/components/GameStats';
 import GameControls from '@/components/GameControls';
-import { Button } from '@/components/ui/button';
 
 /**
  * Home Page - PairUp Memory Matching Game
@@ -113,8 +114,6 @@ export default function Home() {
     setIsGameActive(false);
   };
 
-  const totalCards = (gridSize * gridSize) / 2;
-
   return (
     <div className="h-full bg-linear-to-br from-purple-100 via-white to-mint-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-colors duration-300">
       {/* Background decorative elements */}
@@ -173,6 +172,7 @@ export default function Home() {
           <div className="lg:col-span-1 space-y-6">
             {/* Stats */}
             <GameStats
+              key={resetTrigger.toString()}
               moves={moves}
               matchedPairs={matchedPairs}
               gridSize={gridSize}
