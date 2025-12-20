@@ -1,99 +1,119 @@
-# PairUp
+# PairUp - Memory Matching Game
 
-PairUp is a small web-based memory/matching game built with React, Vite, Tailwind CSS and a lightweight Express server. The UI uses shadcn/ui-inspired components, Radix primitives, and a custom soft-pastel design system.
+PairUp is a modern, interactive memory matching game built with Next.js 16, React 19, and Tailwind CSS v4. It features a soft pastel aesthetic, smooth animations, and multiple difficulty levels and themes.
 
-## Features
-- Responsive memory/matching game UI
-- Theme support via `ThemeContext`
-- Reusable UI primitives in `client/src/components/ui`
-- Simple Express server (server/index.ts) bundled with esbuild for production
-- OAuth login URL helper that uses `VITE_OAUTH_PORTAL_URL` and `VITE_APP_ID`
+<!-- ![PairUp Game Screenshot](public/images/screenshot.png) -->
 
-## Quick Start
-Prerequisites:
-- Node.js (v18+ recommended)
-- pnpm (the project uses pnpm as package manager)
+## 🎮 Features
 
-Install dependencies:
+- **Multiple Themes**: Choose between Animals, Emojis, and Flags.
+- **Difficulty Levels**:
+  - 4x4 (Easy)
+  - 6x6 (Medium)
+  - 8x8 (Hard)
+- **Game Statistics**: Tracks moves, time elapsed, and matched pairs.
+- **Persistence**: Saves your best scores for each difficulty and theme using LocalStorage.
+- **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices.
+- **Dark Mode**: Seamless support for light and dark themes.
+- **Animations**: Smooth card flips and victory animations using `tw-animate-css`.
 
-```bash
-pnpm install
-```
+## 🛠️ Tech Stack
 
-Run development server (client + Vite dev):
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **UI Components**: [Shadcn UI](https://ui.shadcn.com/) / Radix UI Primitives
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Package Manager**: [pnpm](https://pnpm.io/)
 
-```bash
-pnpm dev
-```
+## 🚀 Getting Started
 
-Build for production (client + bundle server):
+### Prerequisites
+
+- Node.js (v18 or higher)
+- pnpm (v9 or v10)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/pairup.git
+   cd pairup
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
+
+3. **Run the development server:**
+   ```bash
+   pnpm dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Building for Production
+
+To create an optimized production build:
 
 ```bash
 pnpm build
 ```
 
-Preview the production build locally (Vite preview):
-
-```bash
-pnpm preview
-```
-
-Run production (after `pnpm build`):
+To start the production server:
 
 ```bash
 pnpm start
 ```
 
-Useful checks:
+## 🕹️ How to Play
 
-```bash
-pnpm check   # typescript check
-pnpm format  # format the codebase with Prettier
+1. **Select a Theme**: Use the controls on the right sidebar (or bottom on mobile) to choose your preferred card theme (Animals, Emojis, or Flags).
+2. **Choose Difficulty**: Select a grid size (4x4, 6x6, or 8x8). Larger grids offer a greater challenge.
+3. **Start Matching**: Click on a card to reveal it. Then click another card to try and find its pair.
+   - If the cards match, they stay face up.
+   - If they don't match, they will flip back over after a short delay.
+4. **Win the Game**: Match all pairs on the board to win!
+5. **Track Progress**: Your moves and time are tracked in real-time. Try to beat your best score!
+
+## 📂 Project Structure
+
+```
+PairUp/
+├── app/                 # Next.js App Router pages
+│   ├── globals.css      # Global styles and Tailwind imports
+│   ├── layout.tsx       # Root layout
+│   └── page.tsx         # Main game page
+├── components/          # React components
+│   ├── ui/              # Reusable UI components (buttons, cards, etc.)
+│   ├── GameBoard.tsx    # Main game grid component
+│   ├── GameCard.tsx     # Individual card component
+│   ├── GameControls.tsx # Sidebar controls for theme/difficulty
+│   └── GameStats.tsx    # Score and timer display
+├── hooks/               # Custom React hooks
+├── lib/                 # Utility functions
+└── public/              # Static assets
 ```
 
-## Environment
-The client expects the following environment variables (in `.env` or the hosting environment):
+## 🎨 Customization
 
-- `VITE_OAUTH_PORTAL_URL` — base URL of the OAuth portal
-- `VITE_APP_ID` — application id used for building the login URL
+### Adding New Themes
+You can add new themes by modifying the `shared/const.ts` or relevant constant file where card data is stored. Ensure you have a unique set of icons or images for the new theme.
 
-Server-side envs depend on your deployment (see `server/index.ts`).
+### Styling
+The project uses Tailwind CSS v4. Global styles are defined in `app/globals.css`. The theme uses CSS variables for colors, making it easy to adjust the color palette.
 
-## Project Structure
-- client/ — frontend app (Vite + React + TypeScript)
-  - src/
-    - App.tsx — app root and router
-    - main.tsx — client mount
-    - components/ — feature components (GameBoard, GameCard, GameControls, GameStats, Map)
-    - components/ui/ — shadcn-style UI primitives and Radix wrappers
-    - contexts/ — `ThemeContext`
-    - hooks/ — custom hooks
-    - lib/ — utilities
-    - pages/ — `Home`, `NotFound`
-- server/ — lightweight Express server entry (`server/index.ts`)
-- shared/ — shared constants used by both client and server
-- components.json — shadcn generator config
-- ideas.md — design notes and visual direction
+## 🤝 Contributing
 
-## Key Components
-- `GameBoard` — main game grid and logic
-- `GameCard` — individual card UI and flip animations
-- `GameControls` — difficulty, new game, and settings
-- `GameStats` — displays score, attempts, time
-- UI primitives in `client/src/components/ui/*` provide consistent styling
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Development Notes
-- The app uses `wouter` for routing and `sonner` for toast notifications.
-- The build script runs `vite build` then bundles `server/index.ts` with esbuild to `dist/`.
-- Styling is handled with Tailwind CSS; the generator config is in `components.json`.
-- The `getLoginUrl` utility builds an OAuth redirect URL at runtime (see `client/src/const.ts`).
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Contributing
-- Run `pnpm install` and use `pnpm dev` to start development.
-- Follow existing code patterns in `client/src/components/ui` for new primitives.
+## 📄 License
 
-## License
-This project is MIT licensed (see `package.json`).
-
----
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
