@@ -97,7 +97,7 @@ export default function About() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8 pt-4 border-t border-gray-100 dark:border-gray-700">
                 <a 
-                  href="https://github.com" 
+                  href="https://github.com/ashwanik0777" 
                   target="_blank" 
                   rel="noreferrer"
                   className="flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
@@ -106,7 +106,7 @@ export default function About() {
                   GitHub
                 </a>
                 <a 
-                  href="https://ashwani.me" 
+                  href="https://ashwanik.me" 
                   target="_blank" 
                   rel="noreferrer"
                   className="flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
