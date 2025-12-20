@@ -13,7 +13,7 @@ export default function Footer() {
           <span>
           Made with <Heart className="inline w-4 h-4 text-red-500 mx-1" fill="currentColor" /> by{" "}
           <a
-            href="https://ashwani.me"
+            href="https://ashwanik.me"
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-foreground hover:text-primary hover:underline transition-colors"
