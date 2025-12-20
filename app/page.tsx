@@ -5,21 +5,6 @@ import GameBoard from '@/components/GameBoard';
 import GameStats from '@/components/GameStats';
 import GameControls from '@/components/GameControls';
 
-/**
- * Home Page - PairUp Memory Matching Game
- * 
- * Design: Soft Pastel Minimalism
- * - Soft purple, mint green, and warm white color palette
- * - Generous whitespace and rounded corners
- * - Smooth animations and transitions
- * 
- * Features:
- * - Theme selection (Animals, Emojis, Flags)
- * - Difficulty levels (4x4, 6x6, 8x8)
- * - Move counter and timer
- * - Best score tracking per difficulty
- * - Responsive layout
- */
 export default function Home() {
   const [theme, setTheme] = useState<'animals' | 'emojis' | 'flags'>('animals');
   const [gridSize, setGridSize] = useState<4 | 6 | 8>(4);

@@ -10,15 +10,6 @@ interface GameStatsProps {
   onTimeUpdate?: (seconds: number) => void;
 }
 
-/**
- * GameStats Component
- * 
- * Displays game statistics: moves counter, timer, and best score.
- * Design: Soft pastel minimalism with card-like containers.
- * - Real-time timer that starts when game begins
- * - Move counter
- * - Best score display (retrieved from localStorage)
- */
 export default function GameStats({
   moves,
   matchedPairs,
