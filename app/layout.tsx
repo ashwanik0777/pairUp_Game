@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div className=" bg-linear-to-br from-purple-100 via-white to-mint-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-colors duration-300 font-sans antialiased flex flex-col">
+          <div className="min-h-screen bg-linear-to-br from-purple-100 via-white to-mint-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-colors duration-300 font-sans antialiased flex flex-col">
             <Header />
             <main className="flex-1 container mx-auto px-4 py-8">
               {children}
